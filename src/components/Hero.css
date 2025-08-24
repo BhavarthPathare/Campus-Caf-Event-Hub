@@ -1,0 +1,239 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.hero__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.hero__particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #6ee7b7, transparent),
+    radial-gradient(2px 2px at 40px 70px, #22d3ee, transparent),
+    radial-gradient(1px 1px at 90px 40px, #6ee7b7, transparent),
+    radial-gradient(1px 1px at 130px 80px, #22d3ee, transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: particleMove 20s linear infinite;
+}
+
+@keyframes particleMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100px); }
+}
+
+.hero__gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    url('https://images.unsplash.com/photo-1442513905333-e89dc7389fa6?q=80&w=1920&auto=format&fit=crop') center/cover,
+    radial-gradient(ellipse at 20% 20%, rgba(110, 231, 183, 0.15), transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(34, 211, 238, 0.1), transparent 50%);
+  background-blend-mode: overlay;
+  opacity: 0.3;
+}
+
+.hero__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #e8ebf0, #6ee7b7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(110, 231, 183, 0.3);
+  letter-spacing: 1px;
+}
+
+.typing-text {
+  display: inline-block;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+  color: #6ee7b7;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.hero__subtitle {
+  font-size: 1.25rem;
+  color: #a1a8b3;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.hero__cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero__visual {
+  position: relative;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.card--menu {
+  top: 20%;
+  left: 10%;
+}
+
+.card--event {
+  top: 50%;
+  right: 20%;
+}
+
+.card--community {
+  bottom: 20%;
+  left: 30%;
+}
+
+.card-icon {
+  width: 2rem;
+  height: 2rem;
+  color: #6ee7b7;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 0.875rem;
+  color: #e8ebf0;
+  font-weight: 500;
+}
+
+.hero__meta {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.meta__item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  min-width: 150px;
+}
+
+.meta__label {
+  display: block;
+  font-size: 0.75rem;
+  color: #a1a8b3;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.meta__value {
+  font-weight: 600;
+  color: #e8ebf0;
+}
+
+.status--open {
+  color: #10b981;
+}
+
+.scroll-indicator {
+  text-align: center;
+  cursor: pointer;
+  color: #a1a8b3;
+  transition: color 0.2s ease;
+}
+
+.scroll-indicator:hover {
+  color: #6ee7b7;
+}
+
+.scroll-arrow {
+  margin-bottom: 0.5rem;
+  color: #6ee7b7;
+}
+
+.scroll-indicator span {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .hero__content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .hero__visual {
+    height: 300px;
+  }
+
+  .floating-card {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin: 0.5rem;
+  }
+
+  .hero__meta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .meta__item {
+    min-width: 200px;
+  }
+
+  .hero__cta {
+    justify-content: center;
+  }
+}
